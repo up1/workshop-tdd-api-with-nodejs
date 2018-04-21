@@ -39,10 +39,10 @@ describe("routes of beer", () => {
           res.status.should.eql(200);
           res.type.should.eql("application/json");
           res.body.data.length.should.eql(3);
-          res.body.data[0].should.include.keys("id", "name", "description", "bracd");
+          res.body.data[0].should.include.keys("id", "name", "description", "brand");
           done();
         });
     });
   });
-/** every subsequent test must be added here !! **/
+
 });
