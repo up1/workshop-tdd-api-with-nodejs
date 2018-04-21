@@ -45,4 +45,35 @@ describe("routes of beer", () => {
     });
   });
 
+  // Second test case
+  describe(`Try to GET ${PATH}/:id`, () => {
+
+    it("should return a single beer", done => {
+      chai
+        .request(server)
+        .get(`${PATH}/1`)
+        .end((err, res) => {
+          should.not.exist(err);
+          res.status.should.eql(200);
+          res.type.should.eql("application/json");
+          res.body.data.length.should.eql(1);
+          res.body.data[0].should.include.keys("id", "name", "description", "brand");
+          done();
+        });
+    });
+
+    it("should return error when beer does not existed in database", done => {
+      chai
+        .request(server)
+        .get(`${PATH}/100`)
+        .end((err, res) => {
+          should.not.exist(err);
+          res.status.should.eql(404);
+          res.type.should.eql("application/json");
+          res.body.error.should.eql("Beer does not exists");
+          done();
+        });
+    });
+  });
+
 });
