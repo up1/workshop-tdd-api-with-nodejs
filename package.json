@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "pretest": "eslint --ignore-path .gitignore .",
-    "test": "mocha --exit"
+    "test": "mocha --exit",
   },
   "author": "Somkait Puisungnoen <somkiat.p@gmail.com> (http://www.somkiat.cc)",
   "license": "ISC",
