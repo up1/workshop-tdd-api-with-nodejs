@@ -37,7 +37,6 @@ describe('routes of beer', () => {
         .request(server)
         .get(`${PATH}`)
         .end((err, res) => {
-          console.log(res);
           should.not.exist(err);
           res.status.should.eql(200);
           res.type.should.eql('application/json');
